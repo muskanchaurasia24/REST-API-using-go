@@ -1,13 +1,51 @@
-REST API using go
+# Event Booking REST API
 
-A Go-powered "EVENT BOOKING" Rest Api
+A Go-powered "EVENT BOOKING" REST API.
 
-GET/events                  ----> get a list of available events
-GET/events/<id>             ----> get a list of available events
-POST/events                 ----> Create a new bookable event **(auth required)**
-PUT/events/<id>             ----> update an event **(auth required)(only by creator)**
-DELETE/events/<id>          ----> delete an event **(auth required)(only by creator)**
-POST/signup                 ----> create new user
-POST/login                  ----> authenticate user **(auth token JWT)**
-POST/evnts/<id>/register    ----> register user for event**(auth required)**
-Delete/events/<id>/register ----> Cancel register **(auth required)**
+## API Endpoints
+
+### Events
+
+- **GET /events**  
+  Get a list of available events.
+
+- **GET /events/{id}**  
+  Get details of a specific event by ID.
+
+- **POST /events**  
+  Create a new bookable event (authentication required).
+
+- **PUT /events/{id}**  
+  Update an existing event (authentication required, only by the creator).
+
+- **DELETE /events/{id}**  
+  Delete an event (authentication required, only by the creator).
+
+### User Authentication
+
+- **POST /signup**  
+  Create a new user.
+
+- **POST /login**  
+  Authenticate user and obtain a JWT token.
+
+### Event Registration
+
+- **POST /events/{id}/register**  
+  Register a user for an event (authentication required).
+
+- **DELETE /events/{id}/register**  
+  Cancel registration for an event (authentication required).
+
+## Authentication
+
+All endpoints marked with **(authentication required)** require a valid JWT token in the `Authorization` header.
+
+## Setup and Run
+
+1. Clone the repository.
+2. Install dependencies.
+3. Run the server.
+
+```bash
+go run main.go
